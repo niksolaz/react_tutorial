@@ -8,18 +8,27 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 </head>
 <body>
+	
 	<div id="content"></div>
 
 	<script type="text/jsx">
 		var NiksComponents = React.createClass({
 			render: function(){
 				return(
-						<h2>My name is Nik</h2>
+						<h2>{this.props.user} is component {this.props.number}</h2>
 				);
 			}
 		});
 
-		React.render(<NiksComponents />,document.getElementById('content'));
+		React.render(
+			<div>
+				<NiksComponents user="Nik" number="one"/>
+				<NiksComponents user="Mike" number="two"/>
+				<NiksComponents user="John" number="three"/>
+				<NiksComponents user="Rob" number="four"/>
+			</div>,
+			document.getElementById('content')
+		);
 	</script>
 </body>
 </html>
